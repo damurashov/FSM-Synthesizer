@@ -1,0 +1,7 @@
+project( int_set )
+add_library( int_set int_set.cpp )
+if(_TEST)
+    set( TEST_PUBLIC public: )
+endif()
+configure_file( int_set.h.in ${int_set_SOURCE_DIR}/int_set.h )
+unset( TEST_PUBLIC )

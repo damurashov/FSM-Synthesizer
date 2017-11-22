@@ -1,0 +1,8 @@
+project( machine_matrix )
+add_library( machine_matrix machine_matrix.cpp cell.cpp )
+target_link_libraries( machine_matrix positions_map )
+if( _TEST )
+    set( TEST_PUBLIC public: )
+endif()
+configure_file( machine_matrix.h.in ${machine_matrix_SOURCE_DIR}/machine_matrix.h )
+unset( TEST_PUBLIC )

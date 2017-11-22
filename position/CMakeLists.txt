@@ -1,0 +1,8 @@
+project( position )
+add_library( position position.cpp )
+target_link_libraries( position int_set )
+if(_TEST)
+    set( TEST_PUBLIC public: )
+endif()
+configure_file( position.h.in ${position_SOURCE_DIR}/position.h )
+unset( TEST_PUBLIC )
