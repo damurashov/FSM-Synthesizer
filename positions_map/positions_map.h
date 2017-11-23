@@ -12,12 +12,13 @@ using namespace std;
 #include "position.h"
 
 class Positions_Map {
-private: 
+private: public:
     const unsigned SIZE;
     Position** m_positions;
     Positions_Map();
 public:
-    typedef Position *const Iterator;
+    //typedef Position *const Iterator;
+    struct Iterator;
 
     Iterator begin() const;
     Iterator end() const;
@@ -27,5 +28,8 @@ public:
     Positions_Map( const Positions_Map& positions_map );
     ~Positions_Map();
 };
+
+// ----- Inner classifiers -----
+#include "iterator.h"
 
 #endif /* end of include guard: POSITIONS_MAP_H */

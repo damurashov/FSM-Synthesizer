@@ -1,5 +1,5 @@
 project( positions_map )
-add_library( positions_map positions_map.cpp )
+add_library( positions_map positions_map.cpp iterator.cpp )
 target_link_libraries( positions_map position )
 if(_TEST)
     set( TEST_PUBLIC public: )

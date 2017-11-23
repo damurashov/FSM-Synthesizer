@@ -1,7 +1,18 @@
 #include "gtest\gtest.h"
 #include "positions_map.h"
+#include <iostream>
 
-static const string reference(" <x><y> <x|y>x ");
+using namespace std;
+
+static const string reference("_<x><y>_<x|y>x_");
+static const string reference2("_<x><y>_");
+
+TEST( MANUAL_DEBUG, _____ ) {
+    Positions_Map posmap(reference2);
+    for (auto it = posmap.begin(); it != posmap.end(); it++)
+        cout << it->right;
+    cout << endl;
+}
 
 TEST( constructor___operator_item_access, string_constructor ) {
     Positions_Map posmap(reference);
@@ -12,12 +23,13 @@ TEST( constructor___operator_item_access, copy_constructor ) {
     Positions_Map posmap_1(reference);
     Positions_Map posmap_2(posmap_1);
     EXPECT_EQ(posmap_2[4].right, 'y');
+    for (auto it = posmap_2.begin(); it != posmap_2.end(); ++it)
+        cout << it->right;
+    cout << endl;
 }
 
-TEST( begin___end___size, iterative_bypass ) {
+TEST( begin___end, iterative_bypass ) {
     Positions_Map posmap(reference);
-    bool flag = true;
-    for (int i = 0; i < posmap.size(); ++i)
-        flag = flag && (posmap[i].right == reference[i+1]);
-    EXPECT_TRUE(flag);
+    for (auto it = posmap.begin(); it != posmap.end(); ++it)
+        cout << it->right << endl;
 }

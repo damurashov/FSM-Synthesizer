@@ -22,8 +22,8 @@ private: @TEST_PUBLIC@
     bool f_end;
 public:
     static const char MOCK;
-    const char& left;
-    const char& right;
+    const char left;
+    const char right;
 
     static bool is_special_char( const char& symbol );
     void add_indexes( const Int_Set& indexes );

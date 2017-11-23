@@ -29,11 +29,11 @@ Positions_Map::~Positions_Map() {
 // ----- Public methods -----
 
 Positions_Map::Iterator Positions_Map::begin() const {
-    return m_positions[0];
+    return Positions_Map::Iterator(m_positions);
 }
 
 Positions_Map::Iterator Positions_Map::end() const {
-    return m_positions[SIZE-1];
+    return Positions_Map::Iterator(&m_positions[SIZE-1]);
 }
 
 unsigned Positions_Map::size() const {

@@ -9,7 +9,7 @@ Machine_Matrix::Machine_Matrix( const Positions_Map& posmap ) :
     m_posmap(posmap) {
     /**/
     // Fill symbols list
-    for (auto it = posmap.begin(); it != posmap.end(); ++it) {
+    for (auto it = m_posmap.begin(); it != m_posmap.end(); ++it) {
         if (!Position::is_special_char(it->right))
             m_symbols.push_back(it->right);
     }
@@ -69,22 +69,20 @@ void Machine_Matrix::register_state( const Int_Set& state ) {
         m_states.push_back(state);
 }
 
-bool Machine_Matrix::is_inside_nested_brackets( Positions_Map::Iterator& it_pos_lbr,
-    Positions_Map::Iterator& it_pos ) {
+bool Machine_Matrix::is_inside_nested_brackets( const Positions_Map::Iterator& it_pos_lbr,
+    const Positions_Map::Iterator& it_pos ) {
     /**/
     int nesting_level = 0;
-    auto it = it_pos_lbr;
-    it++;
-    for (; it != it_pos; ++it) {
-        if (it->is_before_left_bracket() && (it != it_pos))
+    for (auto it = it_pos_lbr; it != it_pos; ++it) {
+        if (it->is_before_left_bracket() && (it != it_pos_lbr) && (it != it_pos))
             nesting_level++;
-        if (it->is_after_right_bracket())
+        if (it->is_after_right_bracket() && (it != it_pos_lbr))
             nesting_level--;
     }
-    return (nesting_level == 0);
+    return (nesting_level != 0);
 }
 
-Positions_Map::Iterator Machine_Matrix::seek_right_bracket( Positions_Map::Iterator& it_l ) {
+Positions_Map::Iterator Machine_Matrix::seek_right_bracket( const Positions_Map::Iterator& it_l ) {
     int rbr_to_skip = 0; // Is being used to handle nested brackets case
     auto it_r = it_l;
 
@@ -125,7 +123,7 @@ void Machine_Matrix::markup_base_indexes() {
     }
 }
 
-void Machine_Matrix::markup_inside_brackets( Positions_Map::Iterator& it_l ) {
+void Machine_Matrix::markup_inside_brackets( const Positions_Map::Iterator& it_l ) {
     Position& lpos = *it_l;
     auto it_r = seek_right_bracket(it_l);
     Position& rpos = *it_r;

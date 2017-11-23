@@ -2,8 +2,8 @@
 
 
 // ----- Static members -----
-const char Position::MOCK = ' ';
-const char* Position::SPECIAL_CHARS = " <>()|\0";
+const char Position::MOCK = '_';
+const char* Position::SPECIAL_CHARS = "_<>()|\t";
 
 // ----- Constructors, destructors -----
 
@@ -58,10 +58,8 @@ bool Position::is_base()                     const { return f_base; }
 bool Position::is_start()                    const { return f_start; }
 bool Position::is_end()                      const { return f_end; }
 
-// ----- Private methods
-
 bool Position::is_special_char( const char& symbol ) {
-    for (auto it = &SPECIAL_CHARS[0]; *it != '\0'; ++it) {
+    for (auto it = &SPECIAL_CHARS[0]; *it != '\t'; ++it) {
         if (symbol == *it)
             return true;
     }

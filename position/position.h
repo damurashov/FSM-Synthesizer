@@ -4,7 +4,7 @@
 #include "int_set.h"
 
 class Position {
-private: 
+private: public:
     static const char* SPECIAL_CHARS;
 
     Position();
@@ -22,8 +22,8 @@ private:
     bool f_end;
 public:
     static const char MOCK;
-    const char& left;
-    const char& right;
+    const char left;
+    const char right;
 
     static bool is_special_char( const char& symbol );
     void add_indexes( const Int_Set& indexes );

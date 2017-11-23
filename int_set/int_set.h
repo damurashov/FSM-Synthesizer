@@ -9,7 +9,7 @@
 using namespace std;
 
 class Int_Set {
-private: 
+private: public:
     list<int> m_integers;
 public:
     bool is_empty() const;
