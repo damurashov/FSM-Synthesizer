@@ -25,6 +25,9 @@ include_directories( ${positions_map_SOURCE_DIR} )
 add_subdirectory( machine_matrix )
 include_directories( ${machine_matrix_SOURCE_DIR} )
 
+# main
+add_subdirectory( main )
+
 # ------------------ TEST ------------------
 if(_TEST)
     # gtest

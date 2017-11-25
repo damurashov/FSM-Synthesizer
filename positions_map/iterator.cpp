@@ -6,7 +6,7 @@ Positions_Map::Iterator::Iterator( const Positions_Map::Iterator& iterator ) : m
 
 Position* Positions_Map::Iterator::operator->() const          { return *m_ptr; }
 Position& Positions_Map::Iterator::operator*() const           { return **m_ptr; }
-Positions_Map::Iterator Positions_Map::Iterator::operator--()  { m_ptr--; return *this; }
+//Positions_Map::Iterator Positions_Map::Iterator::operator--()  { m_ptr--; return *this; }
 Positions_Map::Iterator Positions_Map::Iterator::operator++()  { m_ptr++; return *this; }
 
 Positions_Map::Iterator Positions_Map::Iterator::operator=( const Positions_Map::Iterator& iterator ) {
@@ -19,4 +19,8 @@ bool Positions_Map::Iterator::operator==( const Positions_Map::Iterator& iterato
 
 bool Positions_Map::Iterator::operator!=( const Positions_Map::Iterator& iterator ) const {
     return m_ptr != iterator.m_ptr;
+}
+
+Positions_Map::Iterator Positions_Map::Iterator::next() const {
+    return Positions_Map::Iterator(m_ptr+1);
 }

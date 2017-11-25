@@ -18,7 +18,7 @@ private: @TEST_PUBLIC@
     Positions_Map();
 public:
     //typedef Position *const Iterator;
-    struct Iterator;
+    class Iterator;
 
     Iterator begin() const;
     Iterator end() const;

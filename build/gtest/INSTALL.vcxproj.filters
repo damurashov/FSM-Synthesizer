@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\TemporaryFiles\FSM-Synthesizer\build\CMakeFiles\3ec4708fce8c28581d1df755d4e24e45\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{3AEE8647-349D-3D91-A349-2B438593382D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

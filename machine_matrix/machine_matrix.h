@@ -18,6 +18,7 @@ private: public:
     void markup_inside_brackets( const Positions_Map::Iterator& iter_left_bracket );
     void form_table();
     void register_state( const Int_Set& state );
+    void register_symbol( const char& symbol );
     Positions_Map::Iterator seek_right_bracket( const Positions_Map::Iterator& iter_left_bracket );
     bool is_inside_nested_brackets( const Positions_Map::Iterator& iter_left_outer_bracket,
         const Positions_Map::Iterator& iter_position );

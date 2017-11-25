@@ -1,8 +1,10 @@
 
-struct Positions_Map::Iterator {
+class Positions_Map::Iterator {
+public:
+    Iterator next() const;
     Position& operator*() const;
     Position* operator->() const;
-    Iterator operator--();
+    //Iterator operator--();
     Iterator operator++();
     Iterator operator=( const Iterator& iterator );
     bool operator==( const Iterator& iterator ) const;
